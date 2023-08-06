@@ -1,0 +1,150 @@
+.hero-nosotros{
+    @extend .flx-column;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    min-height: 50vh;
+    padding: 20vh 0;        
+    background: $color1 url("../img/aboutpg-bg.jpg") no-repeat fixed center;
+    background-size: cover;
+    
+    .shape-fill{
+        fill: $blanco;
+    }
+
+    h1{
+        width: 60vw;
+        font-family: $tipo2;
+        font-size: $font-h1;
+        text-align: center;
+        color: $blanco;
+        text-shadow: $shadow2;
+    }    
+}
+.about{
+    @include flex(row, wrap, center, start);
+    width: 100%;
+    padding: 1rem;
+    gap: 1rem;
+    background-color: $blanco;
+
+    .left{
+        @include flex(row, nowrap, space-around, start);
+        margin-top: 4rem;
+        gap: 1rem;
+        width: 50%;
+        min-width: 300px;
+        max-width: 400px;
+
+        .col-1{
+            margin-top: 1rem;
+            @include flex(column, nowrap, space-around, start);
+            gap: 1rem;
+            img{
+                transition: all ease-in-out .3s;
+            }
+            img:hover{
+            transform: scale(110%);}
+            
+        }
+        .col-2{
+            @include flex(column, nowrap, space-around, start);
+            gap: 1rem;
+
+            img{
+                transition: all ease-in-out .3s;
+            }
+            img:hover{
+            transform: scale(110%);
+            }
+        }
+        
+    }
+    .right{
+        @include flex(column, nowrap, center, flex-start);
+            width: 50%;
+            min-width: 300px;
+            max-width: 400px;
+            .tarjetas{
+                @include flex(row, wrap, space-around, start);
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+
+        .card{
+            @include flex(column, nowrap, start, center);
+            width: 50%;
+            height: 250px;
+            padding: 1rem;
+            background-color: #fff;
+            border-radius: $borde-r;
+            box-shadow: $shadow1;
+            gap: .5rem;
+            h3{
+                color: $color1;
+            }
+            ion-icon{
+                @include ionic(32px, $color1);
+            }
+            div{
+                width: 80%;
+            }
+            p{
+                font-size: small;
+                text-align: center;
+            }
+        }
+    }
+
+}
+.escogernos{
+    position: relative;
+    @include flex(column, nowrap, center, center);
+    width: 100%;
+    
+    h1{
+        margin-top: 4rem;
+    }
+    .tarjetas{
+        @include flex(row, wrap, space-around, center);
+        min-width: 350px;
+        max-width: 980px;
+        padding: 1rem;
+    }
+    .card{
+        @include flex(column, nowrap, center, center);
+        width: 300px;
+        height: 300px;
+        padding: 1rem;
+        background-color: $blanco;
+        box-shadow: $shadow1;
+        border-radius: $borde-r;
+        margin-bottom: 1rem;
+        transition: all ease-in-out .3s;
+
+        .circle{
+            @include flex(flex, wrap, center, center);
+            border-radius: 50%;
+            background-color: $color1;
+            width: 48px;
+            height: 48px;
+            padding: 5px;
+            svg{
+                width: 32px;
+                height: 32px;
+                fill: white;
+            }
+        }
+        h2{
+            font-size: $font-p;
+            text-align: center;
+            margin: 1rem;
+        }
+        p{font-size: small; text-align: center; }
+    }
+    .card:hover{
+        transform: scale(1.1);
+        background-color: white;
+    }
+}

@@ -1,0 +1,619 @@
+@import 'reset-javxdesign';
+@import 'globals';
+@import 'blogs';
+@import 'nosotros';
+
+
+
+/* Contenedores */
+
+body {
+    font-family: $tipo1;
+    font-size: $font-p;
+    color: $color3;
+
+
+    header {
+        width: 100vw;
+        background-color: $color4;
+        padding: 1rem;
+        @include flex(row, wrap, space-between, center);
+        .logo{
+            max-width: 200px;
+        }
+
+        .cambio{
+            font-size: smaller;
+            text-shadow: $shadow1;
+            @include media(){
+                width: 100%;
+            }
+        }
+        .ham{
+            background-color: transparent;
+            box-shadow: $shadow1;
+            cursor: pointer;
+            display: none;
+
+            @include media(){
+                display: block;
+            }
+        }
+        .svg{
+            width: 2rem;
+            height: 2rem;
+            fill: $blanco;
+            
+        }
+        .nav{
+            @include media(){
+                width: 100%;
+                opacity: 0;
+                height: 0vh;
+                pointer-events: none;
+                overflow: hidden;
+                transition: all ease-in-out .5s;
+                @include flex( column, wrap, center, center );
+
+                &.activo{
+                    
+                    opacity: 1;
+                    height: 50vh;
+                    pointer-events: auto;
+                }
+            }
+
+        }
+        .menu{
+            @include flex(row, wrap, flex-end, center);
+
+            @include media(){
+                flex-direction: column;
+            }
+            
+        }
+        li{
+            margin-left: .5rem;
+
+            @include media(){
+                margin: 1rem 0;
+            }
+        }
+        a{
+            font-family: $tipo2;
+            font-size: .6rem;
+            font-weight: bolder;
+            padding: .5rem;
+            text-shadow: $shadow2;
+            transition: color ease-in-out .3s;
+            @include media(){
+                font-size: medium;
+            }
+        }
+
+            
+        
+        a:hover{
+            color: $color1;
+        }
+    }       
+    
+    .hero{
+        @extend .flx-column;
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        width: 100vw;
+        min-height: 90vh;
+        padding: 20vh 0;        
+        background: $color1 url("../img/hero.jpg") no-repeat fixed center;
+        background-size: cover;
+        
+        
+
+        h1{
+            width: 60vw;
+            font-family: $tipo2;
+            font-size: $font-h1;
+            text-align: center;
+            color: $blanco;
+            text-shadow: $shadow2;
+        }
+        p{
+            font-family: $tipo1;
+            font-size: $font-h3;
+            font-weight: bolder;
+            text-align: center;
+            color: $blanco;
+            text-shadow: $shadow2;
+        }
+        .btn1{
+            @extend .btn-1;
+        }
+        .btn1:hover{
+            background-color: $color2;
+            color: $color1;
+        }        
+
+        
+    }
+    .servicios{
+        @extend .flx-center;        
+        background-color: $blanco;
+        flex-wrap: wrap;
+
+        .left{
+            width: 300px;
+            margin: 3rem 1rem;
+            ul{
+                list-style: none;
+                margin-top: 1rem;
+                li{
+                    padding: .5rem;
+                    font-size: $font-h3;
+                    
+                }
+                li::before{
+                    content: "";
+                    display: inline-block;
+                    width: 15px;
+                    height: 15px;
+                    background: url('../img/auravfavico.png') no-repeat center;
+                    background-size: contain;
+                    margin-right: 10px;
+                }
+            }
+            
+        }
+        .right{
+            @extend .flx-center;
+            flex-wrap: wrap;
+            min-width: 300px;
+            max-width: 750px;
+            margin: 3rem;
+
+            .card{
+                @extend .flx-column;
+                align-items: center;
+                justify-content: center;
+                width: 300px;
+                height: 370px;
+                padding: 1.5rem;
+                margin: 1rem;
+                box-shadow: $shadow1;
+                border-radius: $borde-r;
+
+                ion-icon{
+                    @include ionic (32px, $color1);
+                    padding: 1rem;
+                }
+
+                h2, p{
+                    text-align: center;
+                }
+            }
+        }
+        
+    }
+    .perspectiva{
+        position: relative;
+        
+
+
+        .hero2{
+            @extend .flx-column;
+            justify-content: center;
+            align-items: center;
+            background: $blanco url("../img/vista\ aerea\ espectacular\ de\ la\ Guaira\ 1.jpg") no-repeat fixed center;
+            min-height: 100vh;
+            
+            h1{
+                text-align: center;
+                max-width: 350px;
+                color: white;
+                text-shadow: $shadow2;
+            }
+            p{
+                text-align: center;
+                max-width: 350px;
+                color: white;
+                text-shadow: $shadow2;
+                font-size: $font-h3;
+            }
+        }
+    }
+    .estadisticas{
+        @extend .flx-column;
+        justify-content: center;
+        align-items: center;
+        background: url('../img/110.jpg') no-repeat center center fixed;
+        background-size: cover;
+        min-height: 100vh;
+        h1, h2{
+            text-shadow: $shadow2;
+            color: white;
+            text-align: center;
+        }
+
+        .stat-items{
+            @extend .flx-center;
+            flex-wrap: wrap;
+            width: 80vw;
+
+            .item{
+                @extend .flx-column;
+                align-items: center;
+                justify-content: center;
+                padding: 1rem;
+                h2{
+                    text-align: center;
+                }
+            }
+        }
+
+        .btn1{
+            @extend .btn-1;
+        }
+        .btn1:hover{
+            background-color: $color2;
+            color: $color1;
+        }
+    }
+    .beneficios{
+        @extend .flx-center;
+        flex-wrap: wrap;
+        background-color: $blanco;
+
+        .left{
+            width: 50vw;
+            min-width: 360px;
+            height: 100vh;
+            background: url("../img/hero2.jpg") no-repeat top center fixed;
+            background-size: cover;
+        }
+        .right{
+            @extend .flx-column;
+            align-items: flex-start;
+            width: 50vw;
+            min-width: 360px;
+            padding: 2rem;
+
+            h3{
+                color: $color1;
+                margin: 1rem 0.5rem;
+
+                ion-icon{
+                    @include ionic(24px, inherit);
+                }
+            }
+            p{
+                width: 300px;
+                padding-left: 36px;
+            }
+            
+        }
+    }
+    .contactos{
+        @extend .flx-center;
+        flex-wrap: wrap;
+        padding-top: 6rem;
+        
+
+        h1, p{
+            @extend .flx-center;
+            flex: 100%;
+            text-align: center;
+        }
+        .card{
+            @extend .flx-column;
+                align-items: center;
+                justify-content: center;
+                width: 300px;
+                min-width: 350px;
+                padding: 1.5rem;
+                margin: 1rem;
+                background-color: $color2;
+                box-shadow: $shadow1;
+                border-radius: $borde-r;
+            h2, p{
+                text-align: center;
+            }
+            p{
+                color: $blanco;
+            }
+
+
+            .contactitem{
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                width: 100%;
+                padding: 1rem;
+                p{
+                    width: 100%;
+                    text-align: left;
+                    flex: 80%
+                }
+
+                ion-icon{
+                    @include ionic(32px, $color1);
+                    padding: 1rem;
+                    flex: 20%;
+                }
+            }
+            .redes a{
+                ion-icon{
+                    @include ionic(32px, $color1);
+                    padding: 1rem;
+                    transition: all ease-in-out .3s;
+                }
+                ion-icon:hover{
+                    transform: scale(1.1);
+                    @include ionic(32px, white);
+                    
+                }
+            }
+        }
+        form{
+            @extend .flx-column;
+
+            input, textarea{
+                width: 350px;
+                max-width: 650px;
+                background-color: #fff;
+                border-radius: $borde-r;
+                padding: 0.5rem 1.5rem;
+                margin: 1rem;
+                box-shadow: $shadow1;
+            }
+            input:focus, textarea:focus{
+                box-shadow: 4px 4px 12px rgba(20, 53, 13, 0.5);
+                outline: 0;
+            }
+            .btn2{
+                @extend .btn-2;
+                transition: color ease-in-out .3s;
+            }
+            .btn2:hover{
+                color: $color1;
+            }
+        }
+    }
+    .testimonio{
+        @extend .flx-column;
+        align-items: center;
+        padding: 3rem;
+
+        .slide-contenedor {
+            max-width: 650px;
+            width: 90%;
+            height: auto;
+            position: relative;
+            overflow: hidden;
+        
+            .miSlider {
+                width: 100%;
+                margin-bottom: 3rem;
+                transition: .3s;
+
+                footer{
+                    background-color: $color2;
+                    color: $blanco;
+                    border-radius: 0 0 8px 8px;
+                    padding: 0.5rem 1rem;
+                }
+            }
+
+            .barras {
+                position: absolute;
+                bottom: 1rem;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+            
+            .barra {
+                cursor: pointer;
+                height: 8px;
+                width: 25px;
+                margin: 0 8px;
+                background: #dcdde1;
+                display: inline-block;
+                border-radius: $borde-r;
+
+            }
+            
+            .active {
+                background-color: $color1;
+            }
+            
+            .fade {
+                animation-name: fade;
+                animation-duration: 1.5s;
+            }
+            
+            @keyframes fade {
+                from {
+                    opacity: .4;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    .entradas{
+        @extend .flx-center;
+            justify-content:space-around;
+            align-items: center;
+        
+    }
+
+    footer{
+        background-color: $color4;
+        
+
+        .subfooter{
+            @extend .flx-center;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            
+
+            .home-f{
+                @extend .flx-column;
+                align-items: center;
+                width: 300px;
+                padding: 1rem;
+
+                @include media(){                    
+                    width: 100%;
+                    @include flex(column, nowrap, center, center);
+                }
+                img{
+                    width: 200px;
+                }
+
+                p{
+                    font-size: $font-p;
+                    font-weight: bolder;
+                    color: $color1
+                }
+
+                .redes a{
+                    ion-icon{
+                        @include ionic(24px, $color1);
+                        padding: 0.5rem;
+                        transition: all ease-in-out .3s;
+                    }
+                    ion-icon:hover{
+                        transform: scale(1.3);
+                        @include ionic(24px, white);
+                        
+                    }
+                }
+            }
+            .menu-f{
+                @extend .flx-column; 
+                align-items: center;
+                justify-content: flex-start;
+                width: 100px;
+
+                @include media(){                    
+                    width: 100%;
+                    @include flex(row, nowrap, center, center);
+                    margin: 1rem;
+                }
+                
+                    a{
+                        font-family: $tipo2;
+                        font-size: .6rem;
+                        font-weight: bolder;
+                        padding: .5rem;
+                        text-shadow: $shadow2;
+                        transition: color ease-in-out .3s;
+                    }
+                    a:hover{
+                        color: $color1;
+                    }
+            }
+            .direccion{
+                width: 300px;
+                margin-right: 1rem;
+
+                @include media(){
+                    width: 100%;
+                    text-align: center;
+                    margin: 1rem;
+                }
+
+                h3, p{
+                    font-size: small;
+                }
+            }
+        }
+        .derechos{
+            @extend .flx-column;
+            align-items: center;
+            width: 100%;
+            background-color: $negro;
+            
+            
+            p{
+                font-size: small;
+                padding: 0.5rem;
+            }
+            div {
+                @extend .flx-center;
+                justify-content: space-between;
+                width: 100%;
+                padding: 0.5rem;
+                background-image: linear-gradient(90deg, #14380d, #000);
+                p a{
+                    color: $color1;
+                    transition: all ease-in-out .3s;
+                }
+                p a:hover{
+                    color: white;
+                    font-weight: bolder;
+                }
+                img{
+                    width: 48px;
+                    margin: 0 1rem 1rem 0;
+                }
+            }
+            
+        }
+    }
+    .entradas{
+        @extend .flx-center;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        margin: 2rem 1rem 1rem;
+
+
+        .card{
+            @extend .flx-column;
+                align-items: center;
+                justify-content: center;
+                width: 350px;
+                min-width: 350px;
+                
+                margin: 1rem;
+                background-color: $blanco;
+                box-shadow: $shadow1;
+                border-radius: $borde-r;
+                img{
+                    border-radius: 8px 8px 0 0;
+                }
+
+                h2, p{
+                    padding: .5rem 1.5rem;
+                }
+                .detalle{
+                    width: 100%;
+                    p{
+                       font-size: small;
+                       text-align: end;
+                       a{
+                        font-weight: bold;
+                        color: $color1;
+                        padding: 1rem 0rem;
+                        transition: all ease-in-out .3s;
+                       }
+                       a:hover{
+                        color: $color2;
+                       }
+                    }
+                    
+                    span{
+                        font-weight: lighter;
+                        color: $color1;
+                    }
+                }
+        }
+    }
+
+}

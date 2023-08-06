@@ -1,0 +1,75 @@
+main{
+    @include flex(column, wrap, center, center);
+    width: 100vw;
+    .img-principal{
+        width: auto;
+        max-height: 40vh;
+        border-radius: $borde-r;
+        box-shadow: $shadow1;
+        margin-top: 1rem;
+    }
+    .detalle{
+        font-size: small;
+        span{
+            color: $color1;
+        }
+    }
+    article{
+        @include flex(column, wrap, center, center);
+        max-width: 600px;
+        min-width: 350px;
+
+        p{
+            width: 100%;
+            padding: 1rem;
+            text-align: left;
+        }
+        h3{
+            margin: 1rem;
+        }
+        img{
+            width: auto;
+            max-height: 20vh;
+            border-radius: $borde-r;
+            box-shadow: $shadow1;
+            margin: 1rem;
+        }
+        ol{
+            li{
+                text-indent: 1rem;
+            }
+        }
+        ion-icon{
+            @include ionic(24px, inherit);
+        }
+    }
+    .pagination{
+        @include flex(row, nowrap, space-between, center);
+        width: 100%;
+        max-width: 600px;
+        min-width: 300px;
+        background-color: beige;
+        border-radius: $borde-r;
+        gap: 1rem;
+        margin: 1rem 0;
+        padding: .5rem;
+        @include media(){
+            @include flex(row, wrap, center, center);
+        }
+
+        .previouspage, .nextpage{
+            font-weight: 600;
+            font-size: 1.8rem;
+            background-color: transparent;
+            cursor: pointer;
+            @include flex(row, nowrap, space-between, center);
+            p{
+                width: 100%;
+            }
+            svg{
+                width: 32px;
+                fill: $color1;
+            }
+        }
+    }
+}

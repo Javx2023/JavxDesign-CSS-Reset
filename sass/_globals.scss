@@ -1,0 +1,147 @@
+/* _globals.scss v1.3 by JavxDesign 2023 | Creative Commons Share Alike License |  */
+  /* Tipografía y Tamaños | agreagar la fuente de tu diseño*/
+
+  $tipo1: 'Poppins', Helvetica, Arial, sans-serif;
+  $tipo2: 'Orbitron', Verdana, sans-serif;
+  $font-p: .9rem;
+  $font-h1: 2rem;
+  $font-h2: 1.5rem;
+  $font-h3: 1rem;
+  /* Colores */
+
+$negro: #070000;
+$blanco: #ececec;
+$color1: #799D1F;
+$color2: #14380d;
+$color3: #6D6D6D;
+$color4: #2B2F37;
+
+
+
+/* Sombras y Bordes */
+$shadow1: 4px 4px 8px rgba(0, 0, 0, 0.288) ; //Better for boxes
+$shadow2: 4px 4px 8px rgba(0, 0, 0, 0.521) ; //Better for white text over photos
+$borde-r: 8px;
+
+/* Botones */
+
+ 
+
+/* Fuentes y estilos de base  */
+
+#typed3,.typed-cursor{
+    color: $color1;
+}
+
+
+p{
+    font-family: $tipo1;
+    font-size: $font-p;
+    color: $color3;
+}
+h1{
+    font-family: $tipo2;
+    font-size: $font-h1;
+    color: $color1;
+}
+h2{
+    font-family: $tipo2;
+    font-size: $font-h2;
+    color: $color1;
+}
+h3{
+    font-family: $tipo1;
+    font-size: $font-h3;
+}
+
+/* Contenedores Extend */
+.flx-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.flx-column{
+    display: flex;
+    flex-direction: column;    
+}
+.btn-1{
+    padding: 1rem 2rem;
+    font-family: $tipo2;
+    background-color: $color1;
+    color: $blanco;
+    border-radius: $borde-r;
+    text-shadow: $shadow1;
+    box-shadow: $shadow1;
+    margin: 3rem;
+    transition: color ease-in-out .3s; 
+}
+.btn-2{
+    padding: 1rem 2rem;
+    font-family: $tipo2;
+    background-color: $color2;
+    color: $blanco;
+    border-radius: $borde-r;
+    box-shadow: $shadow1;
+    margin: 1rem;
+}
+/*---- Setting shapes dividers ----*/
+.custom-shape-divider-bottom-1690861682 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-bottom-1690861682 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 150px;
+    
+}
+
+.custom-shape-divider-bottom-1690861682 .shape-fill {
+    fill: $blanco;    
+}
+
+.custom-shape-divider-top-1690866890 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-top-1690866890 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 150px;
+}
+
+.custom-shape-divider-top-1690866890 .shape-fill {
+    fill: $blanco;
+}
+
+/*       Mixins            */
+// to use with icons set like Ionic Icons
+@mixin ionic ($font-size, $color) {
+    font-size: $font-size;
+    color: $color;
+  }
+// Practical mixin for flex, in alternative to extend snippets above
+@mixin flex($direction, $wrap, $justify, $align) {
+    display: flex;
+    flex-flow: $direction $wrap;
+    justify-content: $justify;
+    align-items: $align;
+ }
+// best way to fast set media queries, at any object.
+@mixin media () {
+    @media  screen and (max-width: 690px) {
+        @content
+    }
+}
